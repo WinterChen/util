@@ -61,10 +61,11 @@ int LogTail::StartTail(int fromwhere)
 			else
 			{
 				printf("Old file has been renamed\n");
-				FILE *fp2 = fopen(mFilename.c_str(), "r");
+				FILE *fp2 = NULL;
 
 				while(fp2 == NULL)
 				{
+					fp2 = fopen(mFilename.c_str(), "r");
 					printf("fopen fp2 %s failed\n", mFilename.c_str());
 					sleep(1);
 				}
